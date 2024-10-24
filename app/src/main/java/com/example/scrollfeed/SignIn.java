@@ -14,12 +14,20 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class SignIn extends AppCompatActivity {
     TextView signup;
+    Button signin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.signin);
-
+        signin = findViewById(R.id.login);
+        signin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SignIn.this, Notification.class);
+                startActivity(intent);
+            }
+        });
         signup = findViewById(R.id.textView4);
         signup.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -10,20 +10,21 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="271dp"
-        android:layout_height="67dp"
+        android:layout_width="260dp"
+        android:layout_height="52dp"
         android:backgroundTint="#FFFFFF"
         android:fontFamily="@font/poppins_semibold"
+        android:gravity="clip_horizontal|center|clip_vertical"
         android:onClick="click"
         android:text="Get Started ->"
         android:textColor="#227B94"
         android:textColorLink="#000000"
         android:textSize="26sp"
-        app:cornerRadius="7dp"
+        app:cornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.941" />
+        app:layout_constraintVertical_bias="0.921" />
 </androidx.constraintlayout.widget.ConstraintLayout>
