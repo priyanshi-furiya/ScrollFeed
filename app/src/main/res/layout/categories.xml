@@ -10,31 +10,30 @@
 
     <Button
         android:id="@+id/trending"
-        android:layout_width="88dp"
+        android:layout_width="80dp"
         android:layout_height="81dp"
         android:background="@drawable/ripple_effect"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.104"
+        app:layout_constraintHorizontal_bias="0.110"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.157" />
+        app:layout_constraintVertical_bias="0.128" />
 
     <Button
         android:id="@+id/national"
-        android:layout_width="88dp"
+        android:layout_width="80dp"
         android:layout_height="81dp"
         android:background="@drawable/ripple_effect"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.157" />
+        app:layout_constraintVertical_bias="0.127" />
 
     <Button
         android:id="@+id/international"
-        android:layout_width="88dp"
+        android:layout_width="80dp"
         android:layout_height="81dp"
         android:background="@drawable/ripple_effect"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -42,23 +41,23 @@
         app:layout_constraintHorizontal_bias="0.888"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.157" />
+        app:layout_constraintVertical_bias="0.128" />
 
     <Button
         android:id="@+id/business"
-        android:layout_width="88dp"
+        android:layout_width="80dp"
         android:layout_height="81dp"
         android:background="@drawable/ripple_effect"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.104"
+        app:layout_constraintHorizontal_bias="0.110"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.327" />
+        app:layout_constraintVertical_bias="0.315" />
 
     <Button
         android:id="@+id/technology"
-        android:layout_width="88dp"
+        android:layout_width="80dp"
         android:layout_height="81dp"
         android:background="@drawable/ripple_effect"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -66,11 +65,11 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.327" />
+        app:layout_constraintVertical_bias="0.315" />
 
     <Button
         android:id="@+id/entertainment"
-        android:layout_width="88dp"
+        android:layout_width="80dp"
         android:layout_height="81dp"
         android:background="@drawable/ripple_effect"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -78,18 +77,19 @@
         app:layout_constraintHorizontal_bias="0.888"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.327" />
+        app:layout_constraintVertical_bias="0.315" />
 
     <Button
         android:id="@+id/sports"
-        android:layout_width="88dp"
+        android:layout_width="80dp"
         android:layout_height="81dp"
         android:background="@drawable/ripple_effect"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.104"
+        app:layout_constraintHorizontal_bias="0.11"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.505" />
 
     <Button
         android:id="@+id/buttonnext"

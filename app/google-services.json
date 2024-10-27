@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "6998001993",
+    "project_id": "scrollfeed-a577a",
+    "storage_bucket": "scrollfeed-a577a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:6998001993:android:c68ed9332cb13a5efdf298",
+        "android_client_info": {
+          "package_name": "com.example.scrollfeed"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvCX6CgnUrMF30gkCCCA40u8zakVTGh8M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
