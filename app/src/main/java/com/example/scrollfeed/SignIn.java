@@ -15,6 +15,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class SignIn extends AppCompatActivity {
     TextView signup;
@@ -44,8 +45,17 @@ public class SignIn extends AppCompatActivity {
                     auth.signInWithEmailAndPassword(userEmail, userPassword)
                             .addOnCompleteListener(task -> {
                                 if (task.isSuccessful()) {
-                                    startActivity(new Intent(SignIn.this, Categories.class));
-                                    finish();
+                                    FirebaseUser user = auth.getCurrentUser();
+                                    if (user != null) {
+                                        String username = user.getDisplayName();
+                                        String userPhoneNumber = user.getPhoneNumber();
+
+                                        SessionManager sessionManager = new SessionManager(SignIn.this);
+                                        sessionManager.setUserDetails(username, userEmail, userPhoneNumber);
+
+                                        startActivity(new Intent(SignIn.this, Categories.class));
+                                        finish();
+                                    }
                                 } else {
                                     Toast.makeText(SignIn.this, "Authentication Failed", Toast.LENGTH_SHORT).show();
                                 }
