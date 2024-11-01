@@ -62,7 +62,6 @@ public class Categories extends AppCompatActivity {
         menuItems = new ArrayList<>();
         menuItems.add(new MenuItem(R.drawable.profile, "Profile"));
         menuItems.add(new MenuItem(R.drawable.discover, "Refresh"));
-        menuItems.add(new MenuItem(R.drawable.category, "Categories"));
         menuItems.add(new MenuItem(R.drawable.signout, "Sign Out"));
 
         View.OnClickListener categoryClickListener = new View.OnClickListener() {
@@ -131,12 +130,10 @@ public class Categories extends AppCompatActivity {
                         break;
                     case 1:
                         refreshDB();
-                    case 2:
-                        Intent categoriesIntent = new Intent(Categories.this, Categories.class);
-                        startActivity(categoriesIntent);
                         break;
-                    case 3:
+                    case 2:
                         signOut();
+                        break;
                 }
                 popupWindow.dismiss();
             }

@@ -34,6 +34,7 @@
         android:background="@drawable/textinputborder"
         android:fontFamily="@font/open_sans"
         android:hint="Password"
+        android:inputType="textPassword"
         android:paddingLeft="10dp"
         android:textSize="16sp"
         android:textStyle="bold"
