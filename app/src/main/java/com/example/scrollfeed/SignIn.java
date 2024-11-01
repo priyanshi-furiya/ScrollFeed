@@ -44,7 +44,7 @@ public class SignIn extends AppCompatActivity {
                     auth.signInWithEmailAndPassword(userEmail, userPassword)
                             .addOnCompleteListener(task -> {
                                 if (task.isSuccessful()) {
-                                    startActivity(new Intent(SignIn.this, Notification.class));
+                                    startActivity(new Intent(SignIn.this, Categories.class));
                                     finish();
                                 } else {
                                     Toast.makeText(SignIn.this, "Authentication Failed", Toast.LENGTH_SHORT).show();
