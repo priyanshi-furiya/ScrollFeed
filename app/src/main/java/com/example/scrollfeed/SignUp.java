@@ -21,6 +21,7 @@ public class SignUp extends AppCompatActivity {
     Button started;
     EditText email, password, phoneNumber, username;
     FirebaseAuth auth;
+    UserData userData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +30,7 @@ public class SignUp extends AppCompatActivity {
         setContentView(R.layout.signup);
 
         auth = FirebaseAuth.getInstance();
+        userData = new UserData(this);
 
         started = findViewById(R.id.button);
         email = findViewById(R.id.email);
@@ -55,6 +57,7 @@ public class SignUp extends AppCompatActivity {
                                                 .build();
                                         user.updateProfile(profileUpdates).addOnCompleteListener(task1 -> {
                                             if (task1.isSuccessful()) {
+                                                userData.addUser(userName, userEmail, userPhoneNumber, userPassword);
                                                 SessionManager sessionManager = new SessionManager(SignUp.this);
                                                 sessionManager.setUserDetails(userName, userEmail, userPhoneNumber);
 

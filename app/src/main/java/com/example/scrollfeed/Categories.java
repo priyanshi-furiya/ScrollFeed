@@ -98,11 +98,6 @@ public class Categories extends AppCompatActivity {
         na.setOnClickListener(categoryClickListener);
         in.setOnClickListener(categoryClickListener);
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.categories), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
     }
     private void showPopupMenu(View anchorView) {
         View popupView = LayoutInflater.from(this).inflate(R.layout.popup_menu, null);

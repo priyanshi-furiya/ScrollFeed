@@ -1,6 +1,7 @@
 package com.example.scrollfeed;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -13,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.EdgeToEdge;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,8 +27,9 @@ import java.io.IOException;
 public class Profile extends AppCompatActivity {
     private ImageView profileImage;
     private EditText editTextName, editTextPhone, editTextEmail;
-    private Button saveButton;
+    private Button saveButton, backButton;
     private SessionManager sessionManager;
+    private UserData userData;
     private TextView Logout;
     private ActivityResultLauncher<Intent> activityResultLauncher;
 
@@ -34,13 +37,16 @@ public class Profile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile);
+        EdgeToEdge.enable(this);
 
         profileImage = findViewById(R.id.profile_image);
         editTextName = findViewById(R.id.editTextName);
         editTextPhone = findViewById(R.id.editTextPhone);
         editTextEmail = findViewById(R.id.editTextTextEmail);
         saveButton = findViewById(R.id.Save);
+        backButton = findViewById(R.id.back);
         sessionManager = new SessionManager(this);
+        userData = new UserData(this);
         Logout = findViewById(R.id.logout);
 
         Logout.setOnClickListener(new View.OnClickListener() {
@@ -49,6 +55,15 @@ public class Profile extends AppCompatActivity {
                 sessionManager.logout();
                 FirebaseAuth.getInstance().signOut();
                 Intent intent = new Intent(Profile.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Profile.this, Categories.class);
                 startActivity(intent);
                 finish();
             }
@@ -83,16 +98,20 @@ public class Profile extends AppCompatActivity {
     }
 
     private void loadProfileDetails() {
-        editTextName.setText(sessionManager.getUsername());
-        editTextPhone.setText(sessionManager.getPhoneNumber());
-        editTextEmail.setText(sessionManager.getEmail());
+        Cursor cursor = userData.getUserByEmail(sessionManager.getEmail());
+        if (cursor != null && cursor.moveToFirst()) {
+            editTextName.setText(cursor.getString(cursor.getColumnIndex("username")));
+            editTextPhone.setText(cursor.getString(cursor.getColumnIndex("phone_number")));
+            editTextEmail.setText(cursor.getString(cursor.getColumnIndex("email")));
 
-        // Load profile image
-        String profileImageString = sessionManager.getProfileImage();
-        if (profileImageString != null) {
-            byte[] imageBytes = android.util.Base64.decode(profileImageString, android.util.Base64.DEFAULT);
-            Bitmap bitmap = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
-            profileImage.setImageBitmap(bitmap);
+            String profileImageString = cursor.getString(cursor.getColumnIndex("profile_image"));
+            if (profileImageString != null) {
+                byte[] imageBytes = android.util.Base64.decode(profileImageString, android.util.Base64.DEFAULT);
+                Bitmap bitmap = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
+                profileImage.setImageBitmap(bitmap);
+            }
+
+            cursor.close();
         }
     }
 
@@ -107,6 +126,7 @@ public class Profile extends AppCompatActivity {
         byte[] imageBytes = byteArrayOutputStream.toByteArray();
         String encodedImage = android.util.Base64.encodeToString(imageBytes, android.util.Base64.DEFAULT);
         sessionManager.setProfileImage(encodedImage);
+        userData.updateProfileImage(sessionManager.getEmail(), encodedImage);
     }
 
     private void saveProfileDetails() {
@@ -116,6 +136,7 @@ public class Profile extends AppCompatActivity {
 
         if (!name.isEmpty() && !phone.isEmpty() && !email.isEmpty()) {
             sessionManager.setUserDetails(name, email, phone);
+            userData.updateUserDetails(name, email, phone);
             Toast.makeText(this, "Profile updated successfully", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
