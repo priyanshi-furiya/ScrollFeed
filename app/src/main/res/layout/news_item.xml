@@ -9,16 +9,16 @@
 
     <TextView
         android:id="@+id/news_title"
-        android:layout_width="139dp"
-        android:layout_height="109dp"
-        android:textSize="18sp"
+        android:layout_width="124dp"
+        android:layout_height="115dp"
+        android:textSize="15dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.975"
+        app:layout_constraintHorizontal_bias="0.918"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.826" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/news_source"
@@ -28,15 +28,15 @@
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.411"
+        app:layout_constraintHorizontal_bias="0.247"
         app:layout_constraintStart_toEndOf="@+id/news_image"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/news_image"
-        android:layout_width="172dp"
-        android:layout_height="155dp"
+        android:layout_width="143dp"
+        android:layout_height="142dp"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
